@@ -23,8 +23,9 @@ function doneTodo(todoText) {
     }
 };
 
-function renderTodo() {
 
+function renderTodo() {
+    
     
     if(inputElement.value.trim() != "") {
         
@@ -38,15 +39,22 @@ function renderTodo() {
         checkElement.style.transform = 'scale(1.5)';
         checkElement.style.margin = '10px';
         todoElement.style.margin = '4px';
-                
+        
         todoElement.appendChild(checkElement);
         todoElement.appendChild(textElement);
         listElement.appendChild(todoElement);
-
+        
         todoList.push({"text": inputElement.value, "ref": todoElement});
     }
     
     inputElement.value = '';
 };
+
+document.getElementById('task').addEventListener('keyup', (event) => {
+    event.preventDefault();
+
+    if(event.keyCode == 13)
+        renderTodo();
+});
 
 buttonElement.onclick = renderTodo;
