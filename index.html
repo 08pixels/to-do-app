@@ -4,32 +4,25 @@
     <head>
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Curso de Javascript </title>
-        <style type="text/css">
-            #app {
-                font-size: 150%;
-                position: fixed;
-                width: 100%;
-                height: 60%;
-                overflow-y: scroll;
-                overflow-x: scroll;
-            };            
-            
-        </style>
+        <title> Todo List </title>
+        <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
 
     <body>
-        <!-- <input type="checkbox" name="vehicle1" value="Bike"> I have a bike<br>
-        <input type="checkbox" style="transform: scale(1.5)" value="none"> -->
 
-        <div id="app" style="color: #cc0000;">
+        <div id="app">
+                <h1> Todo List </h1>
         </div>
 
-        <div style="position: fixed; left: 02%; top:63%;" id="send">
-            <input id="task"style="width:50%; font-size:x-large;" type="text" placeholder="task">
-            <button style="font-size:x-large"> Adicionar </button>
+        <div id="send">
+            <center>
+                <input id="task" type="text" placeholder="tarefa">
+                <button class="box"> Adicionar </button>
+                <button id="done"> Apagar feitos </button>
+                <button id="all"> Apagar Tudo </button>
+            </center>
         </div>
-
+ 
         <script src="todos.js"> </script>
     </body>
 </html>

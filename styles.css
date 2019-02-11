@@ -1,0 +1,106 @@
+
+body {
+    background-color: #1f1f2e;
+}
+
+button {
+    font-family: caroni;
+    font-size: x-large; 
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 12px;
+
+    color: white;
+    padding: 3% 11%;
+    text-align: center;
+    display: inline-block;
+    font-size: 24px;
+}
+
+div {
+    position: fixed;
+    padding: 3%;
+}
+
+h1 {
+    font-family: chickadee;
+    font-weight: normal;
+    font-size: 250%;
+}
+input {
+    font-family: caroni;
+    font-weight: normal;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 12px;
+}
+
+p {
+    font-family: caroni;
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition-delay: 1s;
+}
+
+
+#all {
+    background-color: rgba(255, 51, 0, 0.534);
+    float: right;
+}
+#all:hover {
+    background-color: rgba(255, 51, 0, 0.4);
+}
+
+#done {
+    background-color: rgba(255, 51, 0, 0.534);
+    float: left;
+}
+#done:hover {
+    background-color: rgba(255, 51, 0, 0.4);
+}
+
+#app {
+    font-size: 150%;
+    font-weight: 100;
+    opacity: 0.65;
+    position: fixed;
+    color: #ffffff;
+    width: 90%;
+    height: 65%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+#task {
+    width: 50%;
+    font-size: x-large;
+}
+
+#send {
+    top: 71%;
+}
+
+#erase {
+    top: 82%;
+}
+
+.check {
+    margin-left: 50%;
+}
+.box {
+    margin: 2% 1%;
+}
+.box:hover {
+    background-color: #3e8e41;
+}
+@font-face {
+    font-family: caroni;
+    src: url('./font/Caroni-Regular.otf');
+}
+
+@font-face {
+    font-family: chickadee;
+    src: url('./font/Chickadee\ free.ttf');
+}
+
