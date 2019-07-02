@@ -1,9 +1,8 @@
 
 body {
-    /*font-family: 'Chakra Petch', sans-serif;*/
     font-family: 'VT323', monospace;
-    background-image: url("./images/background.png"); 
-    /*background-color: #1f1f2e;*/
+    background-image: url("./images/background.png");
+    background-repeat: no-repeat;
 }
 
 button {
