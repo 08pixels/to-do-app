@@ -5,22 +5,28 @@
         <meta charset='utf-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> Todo List </title>
-        <link rel="stylesheet" type="text/css" href="styles.css">
+        
+        <link rel="stylesheet" href="reset.css">
+        <link rel="stylesheet" href="styles.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Faster+One|Kelly+Slab|Kumar+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Press+Start+2P|VT323&display=swap" rel="stylesheet">
     </head>
 
     <body>
 
         <div id="app">
-                <h1> Todo List </h1>
+            <h1> Todo List </h1>
         </div>
 
         <div id="send">
-            <center>
-                <input id="task" type="text" placeholder="tarefa">
-                <button class="box"> Adicionar </button>
-                <button id="done"> Apagar feitos </button>
-                <button id="all"> Apagar Tudo </button>
-            </center>
+            <input id="task" type="text" placeholder="tarefa">
+            <button class="box"> Adicionar </button>
+        </div>
+
+        <div id="erase">
+            <button id="done"> Apagar feitos </button>
+            <button id="all"> Apagar Tudo </button>
         </div>
  
         <script src="todos.js"> </script>

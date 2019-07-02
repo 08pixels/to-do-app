@@ -1,61 +1,63 @@
 
 body {
-    background-color: #1f1f2e;
+    /*font-family: 'Chakra Petch', sans-serif;*/
+    font-family: 'VT323', monospace;
+    background-image: url("./images/background.png"); 
+    /*background-color: #1f1f2e;*/
 }
 
 button {
-    font-family: caroni;
-    font-size: x-large; 
+    font-family: 'VT323', monospace;
+    font-size: x-large;
     background-color: #4CAF50;
     border: none;
     border-radius: 12px;
 
     color: white;
-    padding: 3% 11%;
+    padding: 1% 4%;
     text-align: center;
     display: inline-block;
-    font-size: 24px;
+    font-size: 90%;
 }
 
 div {
     position: fixed;
-    padding: 3%;
 }
 
 h1 {
-    font-family: chickadee;
+    padding: 2%;
+    font-family: 'Kelly Slab', cursive;
     font-weight: normal;
     font-size: 250%;
 }
+
 input {
-    font-family: caroni;
-    font-weight: normal;
-    padding: 10px 12px;
-    border: none;
+    padding: 1% 2%;
     border-radius: 12px;
+    font-family: 'VT323', monospace;    
 }
 
 p {
-    font-family: caroni;
     transition-property: width;
     transition-duration: 2s;
     transition-timing-function: linear;
     transition-delay: 1s;
+    padding-left: 2%;
 }
 
 
 #all {
     background-color: rgba(255, 51, 0, 0.534);
-    float: right;
 }
+
 #all:hover {
     background-color: rgba(255, 51, 0, 0.4);
 }
 
 #done {
     background-color: rgba(255, 51, 0, 0.534);
-    float: left;
 }
+
 #done:hover {
     background-color: rgba(255, 51, 0, 0.4);
 }
@@ -66,23 +68,34 @@ p {
     opacity: 0.65;
     position: fixed;
     color: #ffffff;
-    width: 90%;
+    width: 60%;
     height: 65%;
     overflow-y: scroll;
     overflow-x: scroll;
 }
 
 #task {
-    width: 50%;
-    font-size: x-large;
+    margin: 2%;
+    padding: 0.8%;
+    width: 35%;
+    font-size: 100%;
 }
 
 #send {
+    box-sizing: 100%;
+    width: 100%;
     top: 71%;
 }
 
 #erase {
-    top: 82%;
+    box-sizing: 100%;
+    width: 100%;
+    top: 84%;
+    margin-left: 2%;
+}   
+
+div #erase {
+    margin: 45%;
 }
 
 .check {
@@ -94,13 +107,3 @@ p {
 .box:hover {
     background-color: #3e8e41;
 }
-@font-face {
-    font-family: caroni;
-    src: url('./font/Caroni-Regular.otf');
-}
-
-@font-face {
-    font-family: chickadee;
-    src: url('./font/Chickadee\ free.ttf');
-}
-
