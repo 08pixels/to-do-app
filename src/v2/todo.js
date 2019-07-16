@@ -30,25 +30,17 @@ function removeDoneAfter() {
 
 function renderTodo() {
 
-    var newTodo = document.createElement('p')
-    var newLabel= document.createElement('label');
-    var newCheck= document.createElement('input');
-    var newText = document.createTextNode(inputElement.value);
+    let newTodo = document.createElement('p')
+    let newLabel= document.createElement('label');
+    let newCheck= document.createElement('input');
+    let newText = document.createTextNode(inputElement.value);
     
-    var id = Date.now().toString();
-    var text = inputElement.value;
+    let id = Date.now().toString();
+    let text = inputElement.value;
     
     newCheck.setAttribute('type', 'checkbox');
     newTodo.setAttribute('name', id);
 
-    newCheck.oninput = function() {
-        if(doneElement.checked && newCheck.checked) {
-            appElement.removeChild(newTodo);
-            todoList.delete(id);
-        }
-
-        saveToStorage();
-    }
     
     newLabel.appendChild(newText);
     newTodo.appendChild(newCheck);
@@ -56,6 +48,14 @@ function renderTodo() {
     appElement.appendChild(newTodo);
     
     inputElement.value = '';
+    
+    newCheck.oninput = function() {
+        if(doneElement.checked && newCheck.checked) {
+            appElement.removeChild(newTodo);
+            todoList.delete(id);
+            saveToStorage();
+        }
+    }
 
     todoList.set(id, text);
     saveToStorage();
@@ -75,26 +75,29 @@ function send() {
 
 function start() {
 
-    for(var [id, text] of todoList) {
-        var newTodo = document.createElement('p');
-        var inputElement = document.createElement('input');
-        var labelElement = document.createElement('label');
-        var textElement = document.createTextNode(text);
-        
-        inputElement.setAttribute('type', 'checkbox');
-        newTodo.setAttribute('name', id);
+    for(let [id, text] of todoList) {
 
-        inputElement.oninput = function() {
-            if(doneElement.checked && inputElement.checked) {
+        let newTodo = document.createElement('p');
+        let newCheck = document.createElement('input');
+        let newlabel = document.createElement('label');
+        let newText = document.createTextNode(text);
+        
+        newCheck.setAttribute('type', 'checkbox');
+        newTodo.setAttribute('name', id);
+        
+        newlabel.appendChild(newText);
+        newTodo.appendChild(newCheck);
+        newTodo.appendChild(newlabel);
+        appElement.appendChild(newTodo);
+
+        newCheck.oninput = function() {
+
+            if(doneElement.checked && newCheck.checked) {
                 appElement.removeChild(newTodo);
                 todoList.delete(id);
+                saveToStorage();
             }
         };
-
-        labelElement.appendChild(textElement);
-        newTodo.appendChild(inputElement);
-        newTodo.appendChild(labelElement);
-        appElement.appendChild(newTodo);
     }
 }
 
