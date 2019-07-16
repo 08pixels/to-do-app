@@ -1,10 +1,15 @@
-var appElement = document.querySelector('#app');
-var inputElement = document.querySelector('#sent');
-var buttonElement= document.querySelector('#send');
-
-var doneElement = document.querySelector('#done');
+const appElement   = document.querySelector('#app');
+const inputElement = document.querySelector('#sent');
+const buttonElement= document.querySelector('#send');
+const doneElement  = document.querySelector('#done');
 
 var todoList = new Map(JSON.parse(localStorage.getItem('todoList'))) || new Map();
+
+
+function saveToStorage() {
+    localStorage.setItem('todoList', JSON.stringify([...todoList]));
+}
+
 
 function removeDoneAfter() {
     var elements = appElement.querySelectorAll('input');
@@ -12,27 +17,37 @@ function removeDoneAfter() {
     for (element of elements) {
 
         if(element.checked) {
-            appElement.removeChild(element.parentElement);
-            todoList.delete(element.parentElement);
+            var paragraphParent = element.parentElement;
+
+            todoList.delete(paragraphParent.getAttribute('name'));
+            appElement.removeChild(paragraphParent);
         }
     }
-    
+
     saveToStorage();
 }
 
+
 function renderTodo() {
+
     var newTodo = document.createElement('p')
     var newLabel= document.createElement('label');
     var newCheck= document.createElement('input');
     var newText = document.createTextNode(inputElement.value);
     
+    var id = Date.now().toString();
+    var text = inputElement.value;
+    
     newCheck.setAttribute('type', 'checkbox');
+    newTodo.setAttribute('name', id);
 
     newCheck.oninput = function() {
         if(doneElement.checked && newCheck.checked) {
             appElement.removeChild(newTodo);
-            todoList.delete(newTodo);
+            todoList.delete(id);
         }
+
+        saveToStorage();
     }
     
     newLabel.appendChild(newText);
@@ -40,13 +55,10 @@ function renderTodo() {
     newTodo.appendChild(newLabel);
     appElement.appendChild(newTodo);
     
-    todoList.set(newTodo, inputElement.value);
     inputElement.value = '';
-    saveToStorage();
-}
 
-function saveToStorage() {
-    localStorage.setItem('todoList', JSON.stringify([...todoList]));
+    todoList.set(id, text);
+    saveToStorage();
 }
 
 function enterEvent() {
@@ -63,20 +75,21 @@ function send() {
 
 function start() {
 
-    for(var [ref, text] of todoList) {
+    for(var [id, text] of todoList) {
         var newTodo = document.createElement('p');
         var inputElement = document.createElement('input');
         var labelElement = document.createElement('label');
         var textElement = document.createTextNode(text);
         
         inputElement.setAttribute('type', 'checkbox');
+        newTodo.setAttribute('name', id);
 
         inputElement.oninput = function() {
             if(doneElement.checked && inputElement.checked) {
-                todoList.delete(newTodo);
                 appElement.removeChild(newTodo);
+                todoList.delete(id);
             }
-        }
+        };
 
         labelElement.appendChild(textElement);
         newTodo.appendChild(inputElement);
