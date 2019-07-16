@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title> Todo List Project </title>
@@ -21,45 +22,48 @@
         .box {
             width: 35vw;
             height: 12vh;
-            border-radius: 15px;
+            border-radius: 10px;
 
             background-color: darkseagreen;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
         a {
             text-decoration: none;
-            color: rgb(39, 39, 39);
+            color: rgb(56, 56, 56);
         }
 
         div {
-            margin: 8px;
-            transition: 0.7s;
-        }
-        div .box:hover {
-            background-color: rgb(96, 139, 96);
-            width: 100vw;
-            height: 14vh;
-        }
-        
-        body {
             text-align: center;
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 9vh;
-            margin: 0px;
+            margin: 8px;
+            transition: 0.8s;
         }
 
+        div .box:hover {
+            background-color: rgb(115, 155, 115);
+            border-radius: 0px;
+            font-size: 10vh;
+            width: 100vw;
+            height: 14vh;
+        }
+
+        body {
+            margin: 0px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div class="box">
-            <a href="./src/v1/index.html"> todoApp v1 </a> 
+            <a href="./src/v1/index.html"> todoApp v1 </a>
         </div>
         <div class="box">
             <a href="./src/v2/index.html"> todoApp v2 </a>
         </div>
     </div>
 </body>
+
 </html>
